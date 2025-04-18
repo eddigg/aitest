@@ -1,0 +1,35 @@
+# Sentry Development Configuration
+
+# Basic Configuration
+sentry:
+  dsn: "your-local-dsn"  # Replace with actual DSN in production
+  environment: "development"
+  debug: true
+  traces_sample_rate: 1.0
+
+# Event Filtering
+filters:
+  ignore_errors:
+    - "TranscriptionTimeout"
+    - "ConnectionError"
+  ignore_logger:
+    - "werkzeug"
+
+# Performance Monitoring
+performance:
+  enable_tracing: true
+  sample_rate: 1.0
+  profiles_sample_rate: 1.0
+
+# Logging Integration
+logging:
+  level: "INFO"
+  event_level: "ERROR"
+  enable_breadcrumbs: true
+
+# Development-specific Settings
+development:
+  enable_sourcemaps: true
+  auto_session_tracking: true
+  release: "dev"
+  server_name: "local-dev"
